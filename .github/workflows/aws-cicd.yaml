@@ -1,0 +1,29 @@
+name: AWS EC2 CICD Pipeline
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  testing:
+    runs-on: obuntu-latest
+    steps:
+      - name: Copy Repository Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node JS
+        uses: actions/setup-node@v4
+        with:
+          version: 20.15
+
+      - name: Check Installation
+        uses: node -v
+
+      - name: Building code
+        uses: npm run build
+
+      - name: completed
+        uses: npm run test
