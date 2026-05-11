@@ -17,7 +17,7 @@ app.use('/api/v1', router);
 app.get('/', (req: Request, res: Response) => {
   res.send({
     success: true,
-    message: 'Server is running successfully..!',
+    message: 'Server is running successfully...!',
   });
 });
 
